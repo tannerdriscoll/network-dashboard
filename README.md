@@ -34,4 +34,4 @@ Key Components:
 •	Jinja Templates: Used to render HTML on the dashboard.
 Result:
 •	The app runs a Flask server, pings devices to check their status, stores the results in a database, and shows a dashboard with real-time device statuses and ping history.
-Let me know if you'd like to dive deeper into any part of the project!
+
