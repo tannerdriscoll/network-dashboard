@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/86d12a39-bd56-4f05-bafc-501400845919)
+
 Here’s a summary of the steps taken to build your Flask-based device monitoring and ping dashboard application:
 1. Set up Flask App:
 •	Created a Flask app instance using Flask(__name__).
