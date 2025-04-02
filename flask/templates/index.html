@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        function refreshStatus() {
+            fetch('/ping')  // Call Flask route '/ping'
+            .then(response => response.json())
+            .then(data => location.reload()) // Reload page to update database results
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Network Device Status</h1>
+        <button onclick="refreshStatus()">Resend Ping</button>
+
+        <h2>Ping History</h2>
+        <table>
+            <tr>
+                <th>Device Name</th>
+                <th>IP Address</th>
+                <th>Status</th>
+                <th>Timestamp</th>
+            </tr>
+            {% for entry in history %}
+            <tr class="{% if entry[2] == 'Online' %}online{% else %}offline{% endif %}">>
+                <td>{{ entry[0] }}</td>
+                <td>{{ entry[1] }}</td>
+                <td>{{ entry[2] }}</td>
+                <td>{{ entry[3]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
