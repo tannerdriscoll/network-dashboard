@@ -1,0 +1,15 @@
+FROM python:3.9-slim
+
+# Install dependencies
+RUN python -m pip install --upgrade pip
+RUN pip install werkzeug==2.0.1 flask==2.0.1
+
+# Copy the app code
+COPY . /app
+WORKDIR /app
+
+# Expose the port Flask will run on
+EXPOSE 5000
+
+# Run the app
+CMD ["python", "app.py"]
